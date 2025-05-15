@@ -1,0 +1,12 @@
+<section class="p-8 max-w-4xl mx-auto">
+	<h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">🧩 Components</h2>
+	<ul x-data="{ components: [] }"
+		x-init="fetch('/components-list.json').then(res => res.json()).then(data => components = data)">
+		<template x-for="name in components" :key="name">
+			<li class="mb-2">
+				<a class="text-blue-600 dark:text-blue-400 hover:underline font-mono" :href="`#/component/${name}`">&lt;<span
+						x-text="name"></span>&gt;</a>
+			</li>
+		</template>
+	</ul>
+</section>
